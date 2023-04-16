@@ -2,20 +2,20 @@ from django.shortcuts import render
 
 from rest_framework import generics, permissions
 from recipe_book_api.permissions import IsOwnerOrReadOnly
-from .models import Follower
-from .serializers import FollowerSerializer
+from .models import Rating
+from .serializers import RatingSerializer
 
 
-class FollowerList(generics.ListCreateAPIView):
+class RatingList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    serializer_class = FollowerSerializer
-    queryset = Follower.objects.all()
+    serializer_class = RatingSerializer
+    queryset = Rating.objects.all()
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
 
-class FollowerDetail(generics.RetrieveDestroyAPIView):
+class RatingDetail(generics.RetrieveDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
-    serializer_class = FollowerSerializer
-    queryset = Follower.objects.all()
+    serializer_class = RatingSerializer
+    queryset = Rating.objects.all()
