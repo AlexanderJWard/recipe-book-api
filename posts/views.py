@@ -2,6 +2,7 @@ from django.db.models import Count
 from rest_framework import generics, permissions, filters
 from recipe_book_api.permissions import IsOwnerOrReadOnly
 from .models import Post
+from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import PostSerializer
 
 
@@ -15,7 +16,14 @@ class PostList(generics.ListCreateAPIView):
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
-        filters.SearchFilter
+        filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+
+    filterset_fields = [
+        'owner__followed__owner__profile',
+        'likes__owner__profile',
+        'owner__profile',
     ]
 
     search_fields = [
