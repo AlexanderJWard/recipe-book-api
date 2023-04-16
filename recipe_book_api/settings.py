@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'profiles',
     'posts',
+    'comments',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +65,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CSRF_TRUSTED_ORIGINS = ['https://8000-alexanderjw-recipebooka-a1z0nwzawyt.ws-eu94.gitpod.io']
 
 ROOT_URLCONF = 'recipe_book_api.urls'
 
