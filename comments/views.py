@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, permissions
 from recipe_book_api.permissions import IsOwnerOrReadOnly
 from .models import Comment
@@ -10,6 +10,12 @@ class CommentList(generics.ListCreateAPIView):
     serializer_class = CommentSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Comment.objects.all()
+    filter_backends = [
+        DjangoFilterBackend,
+    ]
+    filterset_fields = [
+        'post',
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
