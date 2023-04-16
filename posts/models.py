@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Post(models.Model):
@@ -13,10 +14,9 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
-    prep_time_minutes = models.PositiveIntegerField(default=0, max_value=480)
+    prep_time_minutes = models.PositiveIntegerField(default=0)
     cooking_time_minutes = models.PositiveIntegerField(
-        default=0,
-        max_value=480
+        default=0
     )
     ingredients = models.TextField(blank=True)
     method = models.TextField(blank=True)
