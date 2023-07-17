@@ -67,6 +67,7 @@ DEBUG = "DEV" in os.environ
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     'localhost',
+    'https://3000-alexanderjwa-recipebook-skbc75ivbar.ws-eu101.gitpod.io/',
 ]
 
 
