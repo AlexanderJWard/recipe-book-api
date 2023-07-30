@@ -68,6 +68,7 @@ ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     'localhost',
     'https://3000-alexanderjwa-recipebook-skbc75ivbar.ws-eu101.gitpod.io/',
+    'https://8000-alexanderjw-recipebooka-sz35sf3jc92.ws-eu102.gitpod.io/',
 ]
 
 
@@ -99,6 +100,7 @@ INSTALLED_APPS = [
     'followers',
     'ratings',
     'support_tickets',
+    'todo',
 ]
 
 SITE_ID = 1
