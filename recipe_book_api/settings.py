@@ -68,6 +68,7 @@ ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     'localhost',
     'https://8000-alexanderjw-recipebooka-sz35sf3jc92.ws-eu102.gitpod.io/',
+    'https://ajw-recipe-book.herokuapp.com/'
 ]
 
 
