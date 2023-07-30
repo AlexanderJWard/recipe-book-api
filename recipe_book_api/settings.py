@@ -69,6 +69,7 @@ ALLOWED_HOSTS = [
     'localhost',
     'https://3000-alexanderjwa-recipebook-skbc75ivbar.ws-eu101.gitpod.io/',
     'https://8000-alexanderjw-recipebooka-sz35sf3jc92.ws-eu102.gitpod.io/',
+    'ajw-recipe-book.herokuapp.com',
 ]
 
 
