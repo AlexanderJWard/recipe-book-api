@@ -67,8 +67,7 @@ DEBUG = "DEV" in os.environ
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     'localhost',
-    'https://8000-alexanderjw-recipebooka-sz35sf3jc92.ws-eu102.gitpod.io/',
-    'https://ajw-recipe-book.herokuapp.com/'
+    'https://3000-alexanderjwa-recipebook-skbc75ivbar.ws-eu102.gitpod.io/',
 ]
 
 
@@ -127,7 +126,9 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+
 
 ROOT_URLCONF = 'recipe_book_api.urls'
 
