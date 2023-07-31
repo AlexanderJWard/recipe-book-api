@@ -67,8 +67,6 @@ DEBUG = "DEV" in os.environ
 ALLOWED_HOSTS = [
     'localhost',
     os.environ.get('ALLOWED_HOST'),
-    '8000-alexanderjw-recipebooka-sz35sf3jc92.ws-eu102.gitpod.io',
-    '3000-alexanderjwa-recipebook-skbc75ivbar.ws-eu102.gitpod.io',
 ]
 
 
@@ -116,10 +114,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# if 'CLIENT_ORIGIN' in os.environ:
-#     CORS_ALLOWED_ORIGINS = [
-#         os.environ.get('CLIENT_ORIGIN')
-#     ]
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
 
 if 'CLIENT_ORIGIN_DEV' in os.environ:
     extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)  # noqa
@@ -127,24 +125,24 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
-CORS_ALLOWED_ORIGINS = [
-    "https://ajw-recipe-book.herokuapp.com",
-    "https://ajw-recipe-book-api.herokuapp.com",
-    "https://3000-alexanderjwa-recipebook-skbc75ivbar.ws-eu102.gitpod.io",
-    "http://localhost:8080",
-    "http://127.0.0.1:9000"
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "https://ajw-recipe-book.herokuapp.com",
+#     "https://ajw-recipe-book-api.herokuapp.com",
+#     "https://3000-alexanderjwa-recipebook-skbc75ivbar.ws-eu102.gitpod.io",
+#     "http://localhost:8080",
+#     "http://127.0.0.1:9000"
+# ]
 
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN'),
-        os.environ.get('CLIENT_ORIGIN_DEV')
-    ]
+# if 'CLIENT_ORIGIN' in os.environ:
+#     CORS_ALLOWED_ORIGINS = [
+#         os.environ.get('CLIENT_ORIGIN'),
+#         os.environ.get('CLIENT_ORIGIN_DEV')
+#     ]
 
-CSRF_TRUSTED_ORIGINS = [os.environ.get(
-    'CLIENT_ORIGIN_DEV',
-    'CLIENT_ORIGIN',
-    )]
+# CSRF_TRUSTED_ORIGINS = [os.environ.get(
+#     'CLIENT_ORIGIN_DEV',
+#     'CLIENT_ORIGIN',
+#     )]
 
 CORS_ALLOW_CREDENTIALS = True
 
